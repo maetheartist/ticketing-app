@@ -1,6 +1,6 @@
 import AppRoutes from './app-routes';
 import ContainerWrapper from './components/common/container-wrapper';
-import Navbar from './components/navbar/navbar';
+import Navbar from './components/navbar/Navbar';
 import { GlobalContextProvider } from './store';
 
 const App = () => {

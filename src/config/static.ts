@@ -1,5 +1,4 @@
-export const logoImage = 'tickLogo.png';
-export const logo = 'ticz.png'
-export const BG = ''
-export const barCode = ''
- export const cloudDownloadImg =''
+export const logo = "logo.png";
+export const BG = "bg.png";
+export const barCode = "bar-code.png";
+export const cloudDownloadImg = "cloud-download.png";

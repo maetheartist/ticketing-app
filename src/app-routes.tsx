@@ -1,18 +1,25 @@
-import AppRoutes from './app-routes';
-import ContainerWrapper from './components/common/container-wrapper';
-import Navbar from './components/navbar/navbar';
-import { GlobalContextProvider } from './store';
+import { Route, Routes } from 'react-router-dom';
+import { routes } from './config/routes';
+import { Suspense } from 'react';
+import Loading from './components/common/loading';
+import NotFound from './pages/404';
 
-const App = () => {
+const AppRoutes = () => {
   return (
-    <GlobalContextProvider>
-      <ContainerWrapper>
-        <Navbar />
-        <div className='relative flex items-center justify-center w-full h-full'>
-          <AppRoutes />
-        </div>
-      </ContainerWrapper>
-    </GlobalContextProvider>
+    <div>
+      <Routes>
+        {routes.map((routes, index) => (
+          <Route
+            key={index}
+            path={routes.path}
+            element={
+              <Suspense fallback={<Loading />}>{<routes.component />}</Suspense>
+            }
+          />
+        ))}
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+    </div>
   );
 };
-export default App;
+export default AppRoutes;
