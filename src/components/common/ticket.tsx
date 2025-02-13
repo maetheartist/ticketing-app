@@ -1,9 +1,22 @@
 import { barCode, BG } from '../../config/static';
-import useLocalStorage from '../../hooks/use-local-storage';
 
-const Ticket = () => {
-  const { value } = useLocalStorage('userData', { type: 'object' });
+type TicketProps = {
+  email?: string;
+  fullName?: string;
+  image?: string;
+  noOfTickets?: number;
+  ticketType?: string;
+  specialRequest?: string;
+};
 
+const Ticket: React.FC<TicketProps> = ({
+  email,
+  fullName,
+  image,
+  noOfTickets,
+  ticketType,
+  specialRequest,
+}) => {
   return (
     <div>
       <div className='relative'>
@@ -31,15 +44,25 @@ const Ticket = () => {
             </div>
           </section>
           <aside className='mt-5 w-full h-32 md:h-44'>
-            <img
-              src={value.image}
-              alt='User profile image'
-              className='h-full w-full rounded-2xl'
-            />
+            {image && (
+              <img
+                src={image}
+                alt='User profile image'
+                className='h-full w-full rounded-2xl'
+              />
+            )}
           </aside>
+          <div className='mt-4 text-center'>
+            <h2 className='text-lg font-bold'>{fullName}</h2>
+            <p className='text-sm'>{email}</p>
+            <p className='text-sm'>Ticket Type: {ticketType}</p>
+            <p className='text-sm'>No. of Tickets: {noOfTickets}</p>
+            {specialRequest && <p className='text-sm'>Request: {specialRequest}</p>}
+          </div>
         </aside>
       </div>
     </div>
   );
 };
+
 export default Ticket;

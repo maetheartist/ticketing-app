@@ -72,7 +72,7 @@ const TicketSelection = () => {
           </p>
           <div className='flex font-roboto flex-col max-w-[21.25rem] mx-auto md:flex-row'>
             <p className='text-base flex flex-col md:flex-row'>
-              <span>📍 Lagos, Nigeria </span>
+              <span className=''>📍 Lagos, Nigeria </span>
               <span className='hidden mx-1.5 md:block'>||</span>
             </p>
             <p className=''> March 15, 2025 | 7:00 PM</p>
