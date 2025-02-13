@@ -1,11 +1,11 @@
 import { barCode, BG } from '../../config/static';
 
 type TicketProps = {
-  email?: string;
-  fullName?: string;
+  email: string;
+  fullName: string;
   image?: string;
-  noOfTickets?: number;
-  ticketType?: string;
+  noOfTickets: number;
+  ticketType: string;
   specialRequest?: string;
 };
 
@@ -44,21 +44,23 @@ const Ticket: React.FC<TicketProps> = ({
             </div>
           </section>
           <aside className='mt-5 w-full h-32 md:h-44'>
-            {image && (
-              <img
-                src={image}
-                alt='User profile image'
-                className='h-full w-full rounded-2xl'
-              />
-            )}
+            <img
+              src={image}
+              alt='User profile image'
+              className='h-full w-full rounded-2xl'
+            />
           </aside>
-          <div className='mt-4 text-center'>
-            <h2 className='text-lg font-bold'>{fullName}</h2>
-            <p className='text-sm'>{email}</p>
-            <p className='text-sm'>Ticket Type: {ticketType}</p>
-            <p className='text-sm'>No. of Tickets: {noOfTickets}</p>
-            {specialRequest && <p className='text-sm'>Request: {specialRequest}</p>}
-          </div>
+          <p className='text-center mt-4 font-bold text-white'>
+            Ticket for: {fullName} ({email})
+          </p>
+          <p className='text-center text-sm text-gray-400'>
+            Ticket Type: {ticketType} | Quantity: {noOfTickets}
+          </p>
+          {specialRequest && (
+            <p className='text-center text-sm text-gray-500'>
+              Special Request: {specialRequest}
+            </p>
+          )}
         </aside>
       </div>
     </div>
