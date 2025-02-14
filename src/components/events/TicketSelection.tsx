@@ -98,7 +98,7 @@ const TicketSelection = () => {
           <Form.Item<FormFieldType>
             label={<p className='label'>Select Ticket Type:</p>}
           >
-            <section className='py-4 px-6 rounded-3xl border border-[#07373F] bg-gray-300 grid gap-6 cursor-pointer md:grid-cols-2 lg:grid-cols-3'>
+            <section className='py-4 px-6 rounded-3xl border border-[#07373F] bg-gray-300 grid gap-6 cursor-pointer md:grid-cols-2 lg:grid-cols-3 w-[inherit]'>
               {ticketTypes.map((ticket, i) => {
                 return (
                   <aside
@@ -112,7 +112,7 @@ const TicketSelection = () => {
                       setSelectedTicket(ticket.value as TicketsType)
                     }
                   >
-                    <div className='flex gap-2 w-[200px]'>
+                    <div className='flex gap-2 w-full '>
 
                     
                     <Flex vertical gap={5} className='font-roboto'>
@@ -121,7 +121,7 @@ const TicketSelection = () => {
                       </p>
                       <p className='text-sm text-[#d9d9d9]'>{ticket.label}left!</p>
                     </Flex>
-                    <span className='text-white font-roboto text-xl font-semibold  border-1 border-[#197686] px-3 py-1 bg-[#197686] rounded-md'>
+                    <span className='text-white font-roboto text-xl font-semibold  border-1 border-[#197686] px-3 py-1 bg-[#197686] rounded-md h-8'>
                       {ticket.type}
                     </span>
                     </div>

@@ -25,37 +25,38 @@ const Navbar = () => {
   const { navigate } = useNavigation();
 
   return (
-    <div className='w-[inherit] [backdrop-filter:blur(4px)] rounded-3xl bg-gray-200/[0.4] border-teal border flex items-center justify-between py-3 px-4 text-lg text-darkgray fixed top-10 z-50'>
-      <Logo />
-      <div className='items-center gap-9 hidden md:flex'>
-        {navList.map((nav, i) => {
-          return (
+    <div className="fixed top-0 left-0 right-0 z-50 w-full bg-gray-200/[0.8] backdrop-blur-md border-b border-teal shadow-md">
+      <div className="max-w-[90vw] md:max-w-[85vw] lg:max-w-[80vw] mx-auto flex items-center justify-between py-3 px-4 md:px-6 lg:px-10">
+        <Logo />
+        <div className="hidden md:flex items-center gap-9">
+          {navList.map((nav, i) => (
             <Link
               key={i}
               to={nav.href}
               className={`${
                 nav.href === pathname
-                  ? 'text-white'
-                  : 'text-darkgray hover:text-white'
-              } transition-all`}
+                  ? 'text-white font-semibold'
+                  : 'text-darkgray hover:text-white transition-all'
+              }`}
             >
               {nav.label}
             </Link>
-          );
-        })}
+          ))}
+        </div>
+        <Button
+          type="default"
+          size="large"
+          className="flex gap-2 items-center justify-start text-base text-gray-100"
+          onClick={() => {
+            navigate(TICKET_PAGE);
+          }}
+        >
+          <p className="uppercase font-jeju">My Tickets</p>
+          <ArrowRightIcon className="text-base" />
+        </Button>
       </div>
-      <Button
-        type='default'
-        size='large'
-        className='flex gap-2 items-center justify-start text-base text-gray-100'
-        onClick={() => {
-          navigate(TICKET_PAGE);
-        }}
-      >
-        <p className='uppercase font-jeju'>My Tickets</p>
-        <ArrowRightIcon className='text-base' />
-      </Button>
     </div>
   );
 };
+
 export default Navbar;

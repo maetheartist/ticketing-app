@@ -1,5 +1,5 @@
 import AttendeeDetails from '../components/events/AttendeeDetails';
-import TicketReady from '../components/events/TicketReady';
+import TicketReady from '../components/events/Ticket';
 import TicketSelection from '../components/events/TicketSelection';
 import { useAppContext } from '../store';
 
