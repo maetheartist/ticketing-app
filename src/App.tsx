@@ -6,8 +6,8 @@ import { GlobalContextProvider } from './store';
 const App = () => {
   return (
     <GlobalContextProvider>
-      <ContainerWrapper>
         <Navbar />
+      <ContainerWrapper>
         <div className='relative flex items-center justify-center w-full h-full'>
           <AppRoutes />
         </div>

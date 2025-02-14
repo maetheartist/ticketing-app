@@ -19,17 +19,17 @@ const ticketTypes = [
   {
     type: 'Free',
     value: 'Regular',
-    label: '20/52',
+    label: '20',
   },
   {
-    type: '$150',
+    type: '$50',
     value: 'VIP',
-    label: '20/52',
+    label: '20',
   },
   {
     type: '$150',
     value: 'VVIP',
-    label: '20/52',
+    label: '20',
   },
 ];
 
@@ -112,15 +112,20 @@ const TicketSelection = () => {
                       setSelectedTicket(ticket.value as TicketsType)
                     }
                   >
-                    <p className='text-white font-roboto text-2xl font-semibold'>
-                      {ticket.type}
-                    </p>
+                    <div className='flex gap-2 w-[200px]'>
+
+                    
                     <Flex vertical gap={5} className='font-roboto'>
                       <p className='uppercase text-white'>
                         {ticket.value} Access
                       </p>
-                      <p className='text-sm text-[#d9d9d9]'>{ticket.label}</p>
+                      <p className='text-sm text-[#d9d9d9]'>{ticket.label}left!</p>
                     </Flex>
+                    <span className='text-white font-roboto text-xl font-semibold  border-1 border-[#197686] px-3 py-1 bg-[#197686] rounded-md'>
+                      {ticket.type}
+                    </span>
+                    </div>
+                    
                   </aside>
                 );
               })}
@@ -168,7 +173,6 @@ const TicketSelection = () => {
           </Form.Item>
         </Form>
 
-        {/* <Form.Item label={null}> */}
         <div className='flex flex-col gap-4 mt-2.5 md:flex-row-reverse'>
           <button
             disabled={!noOfTickets}
